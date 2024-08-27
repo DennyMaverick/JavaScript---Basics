@@ -361,16 +361,73 @@ function checkBalance() {
   }
 }
 
-trackExpanse(100);
-trackExpanse(200);
-trackExpanse(12);
-trackExpanse(20);
-trackExpanse(25);
+// trackExpanse(100);
+// trackExpanse(200);
+// trackExpanse(12);
+// trackExpanse(20);
+// trackExpanse(25);
 
-trackExpanse(1200);
+// trackExpanse(1200);
 
 const total = calculate();
-console.log('total: ', total);
+// console.log('total: ', total);
 
 // console.log(expenses);
-checkBalance();
+// checkBalance();
+
+function usdToRub(usd) {
+  let rub = usd * 91.67;
+
+  return rub;
+}
+
+// let usdFromUser = prompt('Введите сумму в долларах', 1);
+
+// let usd = parseInt(usdFromUser);
+
+// let rub = usdToRub(usd);
+
+// alert(`В рублях это: ${rub} руб.`)
+
+// function printNumbers(q) {
+//   for (let i = 1; i <= q; i++) {
+//     alert(i);
+//   }
+// }
+
+// printNumbers(7);
+
+function getExpansesUSDFromUser() {
+  let expansesCount = 0;
+  let expansesUSD = [];
+
+  expansesCount = prompt('Введите количество покупок в usd');
+
+  for (let i = 0; i < expansesCount; i++) {
+    let usdFromUser = prompt(`Введите сумму покупки в usd ${i + 1}`, 0);
+
+    let usd = parseInt(usdFromUser);
+
+    expansesUSD.push(usd);
+  }
+
+  return expansesUSD;
+}
+
+function calculateExpansesUSDToRub(expensesUSD) {
+  let expansesRUB = 0;
+
+  for (let i = 0; i < expensesUSD.length; i++) {
+    let rub = usdToRub(expensesUSD[i]);
+
+    expansesRUB = expansesRUB + rub;
+  }
+
+  return expansesRUB;
+}
+
+let expansesUSD = getExpansesUSDFromUser();
+
+let expansesRUB = calculateExpansesUSDToRub(expansesUSD);
+
+alert(`Сумма всех покупок в рублях: ${expansesRUB} руб.`);
