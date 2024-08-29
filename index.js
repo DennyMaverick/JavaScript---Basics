@@ -217,21 +217,21 @@ function getMonthByNumber(monthNumber) {
 
 // Objects
 
-const person = {
-  name: 'Denny',
-  city: 'Kizema',
-  age: 29,
-  // isAdult: function () {
-  //   return this.age >= 18;
-  // },
+// const person = {
+// name: 'Denny',
+// city: 'Kizema',
+// age: 29,
+// isAdult: function () {
+//   return this.age >= 18;
+// },
 
-  // sayHi: function () {
-  //   console.log('Hello, my name is ' + this.name);
-  //   if (this.isAdult()) {
-  //     console.log('I am more than 18');
-  //   }
-  // },
-};
+// sayHi: function () {
+//   console.log('Hello, my name is ' + this.name);
+//   if (this.isAdult()) {
+//     console.log('I am more than 18');
+//   }
+// },
+// };
 
 // person.city = 'Дубай';
 
@@ -426,8 +426,164 @@ function calculateExpansesUSDToRub(expensesUSD) {
   return expansesRUB;
 }
 
-let expansesUSD = getExpansesUSDFromUser();
+// let expansesUSD = getExpansesUSDFromUser();
 
-let expansesRUB = calculateExpansesUSDToRub(expansesUSD);
+// let expansesRUB = calculateExpansesUSDToRub(expansesUSD);
 
-alert(`Сумма всех покупок в рублях: ${expansesRUB} руб.`);
+// alert(`Сумма всех покупок в рублях: ${expansesRUB} руб.`);
+
+const currencyUSD = 90;
+const currencyEUR = 100;
+const currencyKZT = 45;
+const currencyAED = 115;
+
+function convertRub(valueRub, currency) {
+  let currentCurrency = 0;
+  if (typeof valueRub !== 'number') {
+    alert('error');
+  } else {
+    switch (currency) {
+      case 'USD':
+        currentCurrency = valueRub * currencyUSD;
+        break;
+      case 'EUR':
+        currentCurrency = valueRub * currencyEUR;
+        break;
+      case 'KZT':
+        currentCurrency = valueRub * currencyKZT;
+        break;
+      case 'AED':
+        currentCurrency = valueRub * currencyAED;
+        break;
+
+      default:
+        alert('error');
+        break;
+    }
+  }
+  return currentCurrency;
+}
+
+// const convertRubValue = convertRub(10000, 'AED');
+// console.log('convertRubValue: ', convertRubValue);
+
+const items = ['груша', 'яблоко', 'банан'];
+
+const bananaIndex = getBananaIndex(items);
+// console.log('bananaIndex: ', bananaIndex);
+
+// console.log(items[bananaIndex]);
+
+function getBananaIndex(items) {
+  let bananaIndex = null;
+
+  items.forEach(function (item, index) {
+    if (item === 'банан') {
+      bananaIndex = index;
+    }
+  });
+
+  return bananaIndex;
+}
+
+const person = {
+  name: 'Denny',
+  age: 31,
+  birthday: '02.04.1993',
+};
+
+// console.log(person.name);
+
+// Checkpoint #2
+// 1
+// function printNumbers() {
+//   for (let i = -10; i <= 10; i++) {
+//     console.log(i);
+//   }
+// }
+
+// printNumbers();
+
+// 2
+
+// function printNumbersByRange(start, end) {
+//   for (let i = start; i <= end; i++) {
+//     console.log(i);
+//   }
+// }
+
+// printNumbersByRange(5, 20);
+// 3
+
+function calculateNumbersSum(numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum = sum + numbers[i];
+  }
+  return sum;
+}
+
+const totalSum = calculateNumbersSum([1, 2, 3]);
+// console.log('totalSum: ', totalSum);
+
+// 4
+function includes(numbers, number) {
+  const includedArray = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === number) {
+      includedArray.push(numbers[i]);
+    }
+  }
+  // I
+  // if (includedArray.length > 0) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+  // II
+  if (includedArray.includes(number)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// const isIncludedNumber = includes([1, 177, 1, 155, 145], 145);
+// console.log('isIncludedNumber: ', isIncludedNumber);
+// 5
+
+function createPerson(name, surname, age) {
+  const updatedPerson = {};
+  updatedPerson.name = name;
+  updatedPerson.surname = surname;
+  updatedPerson.age = age;
+  return updatedPerson;
+}
+
+// const myFriend = createPerson('Denny', 'Maverick', 31);
+// console.log('myFriend : ', myFriend);
+
+// const herSister = createPerson('Nataly', 'Makarova', 23);
+// console.log('herSister: ', herSister);
+
+// const people = [
+//   createPerson('Cat', 'Makarevich', 31),
+//   createPerson('Denny', 'Maverick', 31),
+//   createPerson('Nataly', 'Markova', 23),
+//   createPerson('Olga', 'Makarevich', 56),
+// ];
+
+// function findOldest(people) {
+//   let oldestAge = 0;
+//   let oldestName = '';
+//   for (let i = 0; i < people.length; i++) {
+//     if (people[i].age > oldestAge) {
+//       oldestAge = people[i].age;
+//       oldestName = people[i].name;
+//     }
+//   }
+//   return oldestName;
+// }
+
+// const oldestNames = findOldest(people);
+// console.log('oldestNames: ', oldestNames);
